@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-CZceb_kH.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-Bam3NpBI.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-C_DwAp7Z.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-CEsLFVD9.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-D5MAsWEG.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-C6PDArdf.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>JamalMstoyan AF1204 IndividualProject</title>
+    <script type="module" crossorigin src="./assets/index-y6osgSWB.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-D2MJg03u.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-LvLJmgfZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-Bj1aDYRI.js">
+    <link rel="modulepreload" crossorigin href="./assets/compiler-runtime-B3qBwwSJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-Blw4afVn.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEventListener-DGjKht0c.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-JieDVWC_.js">
+    <link rel="modulepreload" crossorigin href="./assets/precisionRound-CU2C3Vxx.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-BLne0bXb.js">
+    <link rel="modulepreload" crossorigin href="./assets/vega-loader.browser-DXARUlxo.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-BZwMGX81.js">
+    <link rel="modulepreload" crossorigin href="./assets/clsx-XrBBnd7s.js">
+    <link rel="modulepreload" crossorigin href="./assets/cn-DYvqRARy.js">
+    <link rel="modulepreload" crossorigin href="./assets/badge-CwbVR_sO.js">
+    <link rel="modulepreload" crossorigin href="./assets/button-COIw2x9i.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-dom-CSu739Rf.js">
+    <link rel="modulepreload" crossorigin href="./assets/fullscreen-k58KVlT-.js">
+    <link rel="modulepreload" crossorigin href="./assets/menu-items-Dtw5N98_.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-sZgjGm4S.js">
+    <link rel="modulepreload" crossorigin href="./assets/createLucideIcon-w-Qo9n0R.js">
+    <link rel="modulepreload" crossorigin href="./assets/check-B-sKate2.js">
+    <link rel="modulepreload" crossorigin href="./assets/x-Bv2rCglF.js">
+    <link rel="modulepreload" crossorigin href="./assets/select-BwwUWhww.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-DmqhBBs6.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-toast-BDYuj3zG.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEvent-D91BmmQi.js">
+    <link rel="modulepreload" crossorigin href="./assets/invariant-CkiqGLcK.js">
+    <link rel="modulepreload" crossorigin href="./assets/isObject-DvLSfCY5.js">
+    <link rel="modulepreload" crossorigin href="./assets/isArrayLikeObject-ODovYgPQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/merge-BOaDhCTH.js">
+    <link rel="modulepreload" crossorigin href="./assets/zod-H_cgTO0M.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-8btzWeZg.js">
+    <link rel="modulepreload" crossorigin href="./assets/Deferred-DxQeE5uh.js">
+    <link rel="modulepreload" crossorigin href="./assets/uuid-DXdzqzcr.js">
+    <link rel="modulepreload" crossorigin href="./assets/DeferredRequestRegistry-BLWK1eKa.js">
+    <link rel="modulepreload" crossorigin href="./assets/constants-tOPFFcLZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/session-DdnWW30b.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-DoZCLcOb.js">
+    <link rel="modulepreload" crossorigin href="./assets/requests-9-v2bhoi.js">
+    <link rel="modulepreload" crossorigin href="./assets/useLifecycle-N3bfh_O1.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNonce-CbdaHKzX.js">
+    <link rel="modulepreload" crossorigin href="./assets/useTheme-DCDmxPD0.js">
+    <link rel="modulepreload" crossorigin href="./assets/arrays-DAC2orgH.js">
+    <link rel="modulepreload" crossorigin href="./assets/strings-pfr2N700.js">
+    <link rel="modulepreload" crossorigin href="./assets/once-hq2TLzOp.js">
+    <link rel="modulepreload" crossorigin href="./assets/capabilities-BmGdj50E.js">
+    <link rel="modulepreload" crossorigin href="./assets/createReducer-CYlwteGD.js">
+    <link rel="modulepreload" crossorigin href="./assets/paths-BzSgteR-.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-VwkX7yeV.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BNTOYRCs.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DZJfxwLb.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CxquLoAZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Dnlw22ji.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-4lB-oR9j.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BvlMLwcr.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CgYlATe-.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BPkOpnKv.js">
+    <link rel="modulepreload" crossorigin href="./assets/stex-jWatZkll.js">
+    <link rel="modulepreload" crossorigin href="./assets/toDate-BGIVWsZ9.js">
+    <link rel="modulepreload" crossorigin href="./assets/purify.es-BFDc-_i_.js">
+    <link rel="modulepreload" crossorigin href="./assets/cjs-D5tzp-Y6.js">
+    <link rel="modulepreload" crossorigin href="./assets/isSymbol-BT6B8Bon.js">
+    <link rel="modulepreload" crossorigin href="./assets/toNumber-BvwE1TMv.js">
+    <link rel="modulepreload" crossorigin href="./assets/now-DNX1lT2d.js">
+    <link rel="modulepreload" crossorigin href="./assets/debounce-BbSyBDA8.js">
+    <link rel="modulepreload" crossorigin href="./assets/database-zap-BxfYZ6ML.js">
+    <link rel="modulepreload" crossorigin href="./assets/main-BNL5rxQw.js">
+    <link rel="modulepreload" crossorigin href="./assets/cells-BqYYXi6G.js">
+    <link rel="modulepreload" crossorigin href="./assets/ErrorBoundary-CxTq44MI.js">
+    <link rel="modulepreload" crossorigin href="./assets/kbd-BUtlbGdu.js">
+    <link rel="modulepreload" crossorigin href="./assets/useInstallPackage-CeM6oPsT.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-dialog-C2mTH3GM.js">
+    <link rel="modulepreload" crossorigin href="./assets/dialog-H-hXtEOq.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDebounce-LVL1r3-M.js">
+    <link rel="modulepreload" crossorigin href="./assets/numbers--nDjbAPa.js">
+    <link rel="modulepreload" crossorigin href="./assets/SSRProvider-D3zWcDme.js">
+    <link rel="modulepreload" crossorigin href="./assets/context-DGqo1TbK.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNumberFormatter-wQU1z0W_.js">
+    <link rel="modulepreload" crossorigin href="./assets/usePress-BXMIcLWP.js">
+    <link rel="modulepreload" crossorigin href="./assets/input-DNCT6U6R.js">
+    <link rel="modulepreload" crossorigin href="./assets/ImperativeModal-hsPVDTG-.js">
+    <link rel="modulepreload" crossorigin href="./assets/cell-link-CRkrHl-y.js">
+    <link rel="modulepreload" crossorigin href="./assets/multi-map-MSuUqmbC.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-DF3HbVtk.js">
+    <link rel="modulepreload" crossorigin href="./assets/chevron-right-CgvDWFE3.js">
+    <link rel="modulepreload" crossorigin href="./assets/dropdown-menu-DrHAuMTb.js">
+    <link rel="modulepreload" crossorigin href="./assets/links-DOybeRem.js">
+    <link rel="modulepreload" crossorigin href="./assets/useRunCells-DFYAOTWd.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-Bizk-4hH.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-DFMsQ6MJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-icon-Ci08KCdY.js">
+    <link rel="modulepreload" crossorigin href="./assets/RenderHTML-CM3WMmA8.js">
+    <link rel="modulepreload" crossorigin href="./assets/datasource-COFRe84u.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-DPomuurt.js">
+    <link rel="modulepreload" crossorigin href="./assets/sparkles-B79Qf6ma.js">
+    <link rel="modulepreload" crossorigin href="./assets/MarimoErrorOutput-Bmp8DLLo.js">
+    <link rel="modulepreload" crossorigin href="./assets/spinner-C5wIpWgQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/html-to-image-DGqJ93hW.js">
+    <link rel="modulepreload" crossorigin href="./assets/focus-DzMo6UAI.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAsyncData-aCoWDe-l.js">
+    <link rel="modulepreload" crossorigin href="./assets/LazyAnyLanguageCodeMirror-CsrwfW0n.js">
+    <link rel="modulepreload" crossorigin href="./assets/micromark-factory-space-DzSMahmM.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-5FQGJX7Z-Cyc7d5AB.js">
+    <link rel="modulepreload" crossorigin href="./assets/markdown-renderer-DNANigO8.js">
+    <link rel="modulepreload" crossorigin href="./assets/command-DnzBp4l4.js">
+    <link rel="modulepreload" crossorigin href="./assets/popover-AtoFZ7i4.js">
+    <link rel="modulepreload" crossorigin href="./assets/errors-CZb6hI2x.js">
+    <link rel="modulepreload" crossorigin href="./assets/download-5XbM3TL_.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-B03CpBmt.js">
+    <link rel="modulepreload" crossorigin href="./assets/useIframeCapabilities-C8jvQ1Lj.js">
+    <link rel="modulepreload" crossorigin href="./assets/error-banner-frvr6JXK.js">
+    <link rel="modulepreload" crossorigin href="./assets/formats-BQHP_yQk.js">
+    <link rel="modulepreload" crossorigin href="./assets/en-US-JRtp5zfw.js">
+    <link rel="modulepreload" crossorigin href="./assets/isValid-U-UFA9KI.js">
+    <link rel="modulepreload" crossorigin href="./assets/dates-stqTIkXD.js">
+    <link rel="modulepreload" crossorigin href="./assets/maps-B4xARV9R.js">
+    <link rel="modulepreload" crossorigin href="./assets/extends-Co37_JfG.js">
+    <link rel="modulepreload" crossorigin href="./assets/emotion-is-prop-valid.esm-DYxi7n2b.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDateFormatter-BEz9SEXo.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-icons.esm-BUYTQ32a.js">
+    <link rel="modulepreload" crossorigin href="./assets/toFinite-2vTWYoIX.js">
+    <link rel="modulepreload" crossorigin href="./assets/range-D-0CV4c0.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-qC3alE1r.js">
+    <link rel="modulepreload" crossorigin href="./assets/ellipsis-DidENKDy.js">
+    <link rel="modulepreload" crossorigin href="./assets/message-circle-DiHwtSG8.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-resizable-panels.browser.esm-BUNcfKXO.js">
+    <link rel="modulepreload" crossorigin href="./assets/JsonOutput-CavtrueA.js">
+    <link rel="modulepreload" crossorigin href="./assets/chart-no-axes-column-CsXoiEZx.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-function-BecUoMho.js">
+    <link rel="modulepreload" crossorigin href="./assets/spec-DqqZbNbU.js">
+    <link rel="modulepreload" crossorigin href="./assets/ellipsis-vertical-DEH0lwkn.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-cw-CiOe0azG.js">
+    <link rel="modulepreload" crossorigin href="./assets/components-DKHyHZBv.js">
+    <link rel="modulepreload" crossorigin href="./assets/column-preview-AfcgbFG_.js">
+    <link rel="modulepreload" crossorigin href="./assets/icons-DlzgV4KY.js">
+    <link rel="modulepreload" crossorigin href="./assets/floating-outline-XObNWtN8.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAddCell-B6yUY_RG.js">
+    <link rel="modulepreload" crossorigin href="./assets/objectWithoutPropertiesLoose-smPWkHxB.js">
+    <link rel="modulepreload" crossorigin href="./assets/esm-BqofWdD5.js">
+    <link rel="modulepreload" crossorigin href="./assets/eye-off-DgRJ-xBZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/plus-BYq_Btg-.js">
+    <link rel="modulepreload" crossorigin href="./assets/readonly-python-code-CI_b818F.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-headphone-5_PGMxRL.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-l37OnSN4.js">
+    <link rel="modulepreload" crossorigin href="./assets/image-BgkzrnsX.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-icons-Bj5YoM7H.js">
+    <link rel="modulepreload" crossorigin href="./assets/switch-YkPg_CVc.js">
+    <link rel="modulepreload" crossorigin href="./assets/events-Qeh-bHlj.js">
+    <link rel="modulepreload" crossorigin href="./assets/globals-Bu6OEURn.js">
+    <link rel="modulepreload" crossorigin href="./assets/share-0LPgOyiW.js">
+    <link rel="modulepreload" crossorigin href="./assets/blob-CTort_or.js">
+    <link rel="modulepreload" crossorigin href="./assets/memoize-BwAF2XN5.js">
+    <link rel="modulepreload" crossorigin href="./assets/get-D7jeR2wg.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseSet-49dbm-yb.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-D1n-olwf.js">
+    <link rel="modulepreload" crossorigin href="./assets/label-C89F4v17.js">
+    <link rel="modulepreload" crossorigin href="./assets/textarea-CS2o3y4W.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-ccw-CfYqAbmq.js">
+    <link rel="modulepreload" crossorigin href="./assets/trash-2-DunI72kV.js">
+    <link rel="modulepreload" crossorigin href="./assets/form-BJ6VFU8l.js">
+    <link rel="modulepreload" crossorigin href="./assets/renderShortcut-DrDh2657.js">
+    <link rel="modulepreload" crossorigin href="./assets/field-DaQqUJ5I.js">
+    <link rel="modulepreload" crossorigin href="./assets/RSPContexts-DzigvqmT.js">
+    <link rel="modulepreload" crossorigin href="./assets/useBoolean-Dk1Mb_so.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDeepCompareMemoize-D0WTlCXt.js">
+    <link rel="modulepreload" crossorigin href="./assets/types-BteCqkNg.js">
+    <link rel="modulepreload" crossorigin href="./assets/fileToBase64-D7Ur9Qxq.js">
+    <link rel="modulepreload" crossorigin href="./assets/prop-types-BFRDxSKF.js">
+    <link rel="modulepreload" crossorigin href="./assets/es-ISEb5HNL.js">
+    <link rel="modulepreload" crossorigin href="./assets/hasIn-DafhTYio.js">
+    <link rel="modulepreload" crossorigin href="./assets/_basePickBy-C0EPK3Lm.js">
+    <link rel="modulepreload" crossorigin href="./assets/pick-neNJUP_8.js">
+    <link rel="modulepreload" crossorigin href="./assets/code-xml-DxxzgVgU.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-COtNnHUC.js">
+    <link rel="modulepreload" crossorigin href="./assets/triangle-alert-DJ8dAd4j.js">
+    <link rel="modulepreload" crossorigin href="./assets/bundle.esm-BIoPrMH_.js">
+    <link rel="stylesheet" crossorigin href="./assets/cells-jmgGt1lS.css">
+    <link rel="stylesheet" crossorigin href="./assets/markdown-renderer-DdDKmWlR.css">
+    <link rel="stylesheet" crossorigin href="./assets/JsonOutput-B7vuddcd.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-CKRn_SiB.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    <marimo-code hidden="">%23%20%2F%2F%2F%20script%0A%23%20requires-python%20%3D%20%22%3E%3D3.13%22%0A%23%20dependencies%20%3D%20%5B%0A%23%20%20%20%20%20%22marimo%3E%3D0.23.1%22%2C%0A%23%20%20%20%20%20%22pandas%3D%3D3.0.2%22%2C%0A%23%20%20%20%20%20%22plotly%3D%3D6.7.0%22%2C%0A%23%20%5D%0A%23%20%2F%2F%2F%0A%0Aimport%20marimo%0A%0A__generated_with%20%3D%20%220.23.1%22%0Aapp%20%3D%20marimo.App(width%3D%22medium%22%2C%20auto_download%3D%5B%22html%22%5D)%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20cogs_slider%2C%0A%20%20%20%20fig_comparison%2C%0A%20%20%20%20fig_full%2C%0A%20%20%20%20fig_profit%2C%0A%20%20%20%20fig_scenarios%2C%0A%20%20%20%20logistics_slider%2C%0A%20%20%20%20markup_slider%2C%0A%20%20%20%20metrics_block%2C%0A%20%20%20%20mo%2C%0A%20%20%20%20profit_summary%2C%0A%20%20%20%20selected_cogs%2C%0A%20%20%20%20selected_logistics%2C%0A%20%20%20%20selected_markup%2C%0A)%3A%0A%20%20%20%20home_tab%20%3D%20mo.md(%22%22%22%0A%20%20%20%20%23%20Jamal%20Mstoyan%0A%0A%20%20%20%20%23%23%23%20Accounting%20%26%20Finance%20Student%20%7C%20Entrepreneur%0A%0A%20%20%20%20---%0A%0A%20%20%20%20%23%23%20Profile%0A%0A%20%20%20%20I%20am%20an%20Accounting%20and%20Finance%20student%20with%20an%20interest%20in%20financial%20analysis%2C%20profitability%2C%20and%20business%20decision-making.%0A%0A%20%20%20%20Alongside%20my%20studies%2C%20I%20have%20practical%20experience%20in%20retail.%20Since%202024%2C%20I%20have%20been%20operating%20as%20an%20individual%20entrepreneur%20and%20developing%20grocery%20stores%20in%20Kazakhstan.%20This%20gave%20me%20hands-on%20exposure%20to%20pricing%2C%20cost%20control%2C%20and%20day-to-day%20business%20decisions.%0A%0A%20%20%20%20---%0A%0A%20%20%20%20%23%23%20Education%0A%0A%20%20%20%20**Kazakhstan%2C%20%E2%84%965%20Gymnasium%20School%20of%20Rudny**%20%20%0A%20%20%20%202013%E2%80%932023%0A%0A%20%20%20%20**Abbey%20College%20Cambridge%20(Business%20Pathway)**%20%20%0A%20%20%20%202023%E2%80%932025%0A%0A%20%20%20%20**Accounting%20%26%20Finance**%20%20%0A%20%20%20%20Bayes%20Business%20School%2C%20City%20St%20George%E2%80%99s%2C%20University%20of%20London%20%20%0A%20%20%20%20Current%20programme%0A%0A%20%20%20%20---%0A%0A%20%20%20%20%23%23%20Experience%0A%0A%20%20%20%20**Individual%20Entrepreneur**%20%20%0A%20%20%20%20Since%202024%0A%0A%20%20%20%20-%20Managing%20grocery%20retail%20operations%20in%20Kazakhstan%20%20%0A%20%20%20%20-%20Working%20with%20pricing%2C%20costs%2C%20and%20business%20performance%20%20%0A%20%20%20%20-%20Making%20practical%20commercial%20decisions%20%20%0A%0A%20%20%20%20---%0A%0A%20%20%20%20%23%23%20Leadership%20Experience%0A%0A%20%20%20%20**School%20President%20(Rudny)**%0A%0A%20%20%20%20Elected%20by%20students%20to%20represent%20the%20school.%20This%20helped%20me%20develop%20communication%2C%20responsibility%2C%20and%20decision-making%20skills.%0A%0A%20%20%20%20---%0A%0A%20%20%20%20%23%23%20Interests%0A%0A%20%20%20%20-%20Financial%20analysis%20%20%0A%20%20%20%20-%20Profitability%20%20%0A%20%20%20%20-%20Cost%20structure%20%20%0A%20%20%20%20-%20Retail%20business%20%20%0A%20%20%20%20-%20Data-based%20decision-making%20%20%0A%0A%20%20%20%20---%0A%0A%20%20%20%20%23%23%20Purpose%20of%20This%20Page%0A%0A%20%20%20%20This%20page%20shows%20a%20simple%20financial%20model%20of%20a%20retail%20business.%20It%20focuses%20on%20how%20markup%20and%20costs%20affect%20profit%2C%20using%20interactive%20inputs%20and%20charts.%0A%20%20%20%20%22%22%22)%0A%0A%20%20%20%20project_tab_intro%20%3D%20mo.md(%22%22%22%0A%20%20%20%20%23%20Retail%20Profitability%20Analysis%0A%0A%20%20%20%20This%20section%20looks%20at%20how%20markup%20and%20costs%20affect%20revenue%20and%20profit.%0A%0A%20%20%20%20You%20can%20change%20the%20inputs%20and%20see%20how%20the%20results%20move.%0A%20%20%20%20%22%22%22)%0A%0A%20%20%20%20skills_tab%20%3D%20mo.md(%22%22%22%0A%20%20%20%20%23%20Skills%20Demonstrated%0A%0A%20%20%20%20%23%23%20Technical%0A%0A%20%20%20%20-%20Python%20for%20financial%20calculations%20%20%0A%20%20%20%20-%20Interactive%20inputs%20(sliders)%20%20%0A%20%20%20%20-%20Plotly%20charts%20%20%0A%0A%20%20%20%20%23%23%20Analytical%0A%0A%20%20%20%20-%20Profit%20calculation%20%20%0A%20%20%20%20-%20Cost%20structure%20understanding%20%20%0A%20%20%20%20-%20Scenario%20comparison%20%20%0A%0A%20%20%20%20%23%23%20Communication%0A%0A%20%20%20%20-%20Presenting%20results%20clearly%20%20%0A%20%20%20%20-%20Turning%20numbers%20into%20visual%20output%20%20%0A%20%20%20%20%22%22%22)%0A%0A%20%20%20%20contact_tab%20%3D%20mo.md(%22%22%22%0A%20%20%20%20%23%20Contact%0A%0A%20%20%20%20Email%3A%20Jamal.Mstoyan%40bayes.city.ac.uk%20%20%0A%0A%20%20%20%20London%2C%20United%20Kingdom%0A%20%20%20%20%22%22%22)%0A%0A%20%20%20%20break_even_markup%20%3D%20selected_logistics%20%2F%20selected_cogs%0A%20%20%20%20break_even_status%20%3D%20%22Profitable%22%20if%20selected_markup%20%3E%20break_even_markup%20else%20%22Below%20break-even%22%0A%0A%20%20%20%20tabs%20%3D%20mo.ui.tabs(%7B%0A%20%20%20%20%20%20%20%20%22Home%22%3A%20home_tab%2C%0A%0A%20%20%20%20%20%20%20%20%22Profitability%20Analysis%22%3A%20mo.vstack(%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20project_tab_intro%2C%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%22%22%22%0A%20%20%20%20%23%23%20Financial%20Model%0A%0A%20%20%20%20Revenue%20%3D%20Cost%20of%20Goods%20%C3%97%20(1%20%2B%20Markup)%20%20%0A%20%20%20%20Profit%20%3D%20Revenue%20%E2%88%92%20Costs%20%E2%88%92%20Logistics%0A%20%20%20%20%22%22%22)%2C%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20cogs_slider%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20markup_slider%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20logistics_slider%2C%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20profit_summary%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20metrics_block%2C%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(f%22%22%22%0A%20%20%20%20%23%23%20Break-even%0A%0A%20%20%20%20Break-even%20markup%3A%20**%7Bbreak_even_markup%3A.1%25%7D**%20%20%0A%20%20%20%20Current%20status%3A%20**%7Bbreak_even_status%7D**%0A%20%20%20%20%22%22%22)%2C%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%22%23%23%20Profit%20vs%20Markup%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.ui.plotly(fig_profit)%2C%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%22%23%23%20Revenue%2C%20Costs%2C%20Profit%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.ui.plotly(fig_comparison)%2C%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%22%23%23%20Scenario%20Comparison%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.ui.plotly(fig_scenarios)%2C%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%22%23%23%20Full%20Sensitivity%20Analysis%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.ui.plotly(fig_full)%0A%20%20%20%20%20%20%20%20%5D)%2C%0A%0A%20%20%20%20%20%20%20%20%22Skills%22%3A%20skills_tab%2C%0A%20%20%20%20%20%20%20%20%22Contact%22%3A%20contact_tab%0A%20%20%20%20%7D)%0A%0A%20%20%20%20tabs%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%0A%0A%20%20%20%20return%20(mo%2C)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20plotly.express%20as%20px%0A%20%20%20%20import%20pandas%20as%20pd%0A%0A%20%20%20%20return%20pd%2C%20px%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20cogs_slider%20%3D%20mo.ui.slider(%0A%20%20%20%20%20%20%20%20start%3D50_000%2C%0A%20%20%20%20%20%20%20%20stop%3D400_000%2C%0A%20%20%20%20%20%20%20%20step%3D10_000%2C%0A%20%20%20%20%20%20%20%20value%3D200_000%2C%0A%20%20%20%20%20%20%20%20label%3D%22Cost%20of%20goods%20sold%20(%C2%A3)%22%0A%20%20%20%20)%0A%0A%20%20%20%20markup_slider%20%3D%20mo.ui.slider(%0A%20%20%20%20%20%20%20%20start%3D0.05%2C%0A%20%20%20%20%20%20%20%20stop%3D0.50%2C%0A%20%20%20%20%20%20%20%20step%3D0.01%2C%0A%20%20%20%20%20%20%20%20value%3D0.25%2C%0A%20%20%20%20%20%20%20%20label%3D%22Markup%20(%25)%22%0A%20%20%20%20)%0A%0A%20%20%20%20logistics_slider%20%3D%20mo.ui.slider(%0A%20%20%20%20%20%20%20%20start%3D10_000%2C%0A%20%20%20%20%20%20%20%20stop%3D100_000%2C%0A%20%20%20%20%20%20%20%20step%3D5_000%2C%0A%20%20%20%20%20%20%20%20value%3D40_000%2C%0A%20%20%20%20%20%20%20%20label%3D%22Logistics%20cost%20(%C2%A3)%22%0A%20%20%20%20)%0A%0A%20%20%20%20mo.vstack(%5B%0A%20%20%20%20%20%20%20%20cogs_slider%2C%0A%20%20%20%20%20%20%20%20markup_slider%2C%0A%20%20%20%20%20%20%20%20logistics_slider%0A%20%20%20%20%5D)%0A%20%20%20%20return%20cogs_slider%2C%20logistics_slider%2C%20markup_slider%0A%0A%0A%40app.cell%0Adef%20_(cogs_slider%2C%20logistics_slider%2C%20markup_slider%2C%20mo)%3A%0A%20%20%20%20selected_cogs%20%3D%20cogs_slider.value%0A%20%20%20%20selected_markup%20%3D%20markup_slider.value%0A%20%20%20%20selected_logistics%20%3D%20logistics_slider.value%0A%0A%20%20%20%20calculated_revenue%20%3D%20selected_cogs%20*%20(1%20%2B%20selected_markup)%0A%20%20%20%20calculated_total_costs%20%3D%20selected_cogs%20%2B%20selected_logistics%0A%20%20%20%20calculated_profit%20%3D%20calculated_revenue%20-%20calculated_total_costs%0A%20%20%20%20gross_margin%20%3D%20calculated_profit%20%2F%20calculated_revenue%0A%0A%20%20%20%20profit_summary%20%3D%20mo.md(f%22%22%22%0A%20%20%20%20%23%20Interactive%20Profit%20Analysis%0A%0A%20%20%20%20**Cost%20of%20goods%20sold%3A**%20%C2%A3%7Bselected_cogs%3A%2C.0f%7D%20%20%0A%20%20%20%20**Markup%3A**%20%7Bselected_markup%3A.0%25%7D%20%20%0A%20%20%20%20**Logistics%20cost%3A**%20%C2%A3%7Bselected_logistics%3A%2C.0f%7D%20%20%0A%0A%20%20%20%20**Calculated%20revenue%3A**%20%C2%A3%7Bcalculated_revenue%3A%2C.0f%7D%20%20%0A%20%20%20%20**Total%20costs%3A**%20%C2%A3%7Bcalculated_total_costs%3A%2C.0f%7D%20%20%0A%0A%20%20%20%20%23%23%20Estimated%20Profit%3A%20%C2%A3%7Bcalculated_profit%3A%2C.0f%7D%0A%0A%20%20%20%20**Profit%20margin%3A**%20%7Bgross_margin%3A.1%25%7D%0A%20%20%20%20%22%22%22)%0A%0A%20%20%20%20profit_summary%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%20%20calculated_profit%2C%0A%20%20%20%20%20%20%20%20calculated_revenue%2C%0A%20%20%20%20%20%20%20%20calculated_total_costs%2C%0A%20%20%20%20%20%20%20%20gross_margin%2C%0A%20%20%20%20%20%20%20%20profit_summary%2C%0A%20%20%20%20%20%20%20%20selected_cogs%2C%0A%20%20%20%20%20%20%20%20selected_logistics%2C%0A%20%20%20%20%20%20%20%20selected_markup%2C%0A%20%20%20%20)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Profit%20Sensitivity%20Chart%0A%0A%20%20%20%20The%20chart%20below%20shows%20how%20estimated%20profit%20changes%20as%20the%20markup%20percentage%20increases%2C%20while%20cost%20of%20goods%20sold%20and%20logistics%20cost%20remain%20fixed%20at%20the%20selected%20values.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo%2C%20pd%2C%20px%2C%20selected_cogs%2C%20selected_logistics)%3A%0A%20%20%20%20markup_values%20%3D%20%5Bi%20%2F%20100%20for%20i%20in%20range(5%2C%2051)%5D%0A%0A%20%20%20%20profit_table%20%3D%20pd.DataFrame(%7B%0A%20%20%20%20%20%20%20%20%22Markup%22%3A%20markup_values%0A%20%20%20%20%7D)%0A%0A%20%20%20%20profit_table%5B%22Revenue%22%5D%20%3D%20selected_cogs%20*%20(1%20%2B%20profit_table%5B%22Markup%22%5D)%0A%20%20%20%20profit_table%5B%22Total%20Costs%22%5D%20%3D%20selected_cogs%20%2B%20selected_logistics%0A%20%20%20%20profit_table%5B%22Profit%22%5D%20%3D%20profit_table%5B%22Revenue%22%5D%20-%20profit_table%5B%22Total%20Costs%22%5D%0A%20%20%20%20profit_table%5B%22Markup%20Label%22%5D%20%3D%20(profit_table%5B%22Markup%22%5D%20*%20100).round(0).astype(int).astype(str)%20%2B%20%22%25%22%0A%0A%20%20%20%20fig_profit%20%3D%20px.line(%0A%20%20%20%20%20%20%20%20profit_table%2C%0A%20%20%20%20%20%20%20%20x%3D%22Markup%22%2C%0A%20%20%20%20%20%20%20%20y%3D%22Profit%22%2C%0A%20%20%20%20%20%20%20%20markers%3DTrue%2C%0A%20%20%20%20%20%20%20%20title%3D%22Estimated%20Profit%20at%20Different%20Markup%20Levels%22%2C%0A%20%20%20%20%20%20%20%20labels%3D%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Markup%22%3A%20%22Markup%20(%25)%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Profit%22%3A%20%22Estimated%20Profit%20(%C2%A3)%22%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20)%0A%0A%20%20%20%20fig_profit.update_traces(%0A%20%20%20%20%20%20%20%20hovertemplate%3D%22Markup%3A%20%25%7Bx%3A.0%25%7D%3Cbr%3EProfit%3A%20%C2%A3%25%7By%3A%2C.0f%7D%3Cextra%3E%3C%2Fextra%3E%22%0A%20%20%20%20)%0A%0A%20%20%20%20fig_profit.update_layout(%0A%20%20%20%20%20%20%20%20template%3D%22presentation%22%2C%0A%20%20%20%20%20%20%20%20width%3D900%2C%0A%20%20%20%20%20%20%20%20height%3D500%0A%20%20%20%20)%0A%0A%20%20%20%20mo.ui.plotly(fig_profit)%0A%20%20%20%20return%20(fig_profit%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Key%20Financial%20Metrics%0A%0A%20%20%20%20The%20key%20outputs%20below%20summarise%20the%20financial%20position%20under%20the%20selected%20pricing%20and%20cost%20assumptions.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20calculated_profit%2C%0A%20%20%20%20calculated_revenue%2C%0A%20%20%20%20calculated_total_costs%2C%0A%20%20%20%20gross_margin%2C%0A%20%20%20%20mo%2C%0A%20%20%20%20selected_cogs%2C%0A%20%20%20%20selected_logistics%2C%0A%20%20%20%20selected_markup%2C%0A)%3A%0A%20%20%20%20metrics_block%20%3D%20mo.md(f%22%22%22%0A%20%20%20%20%7C%20Metric%20%7C%20Value%20%7C%0A%20%20%20%20%7C---%7C---%3A%7C%0A%20%20%20%20%7C%20Cost%20of%20goods%20sold%20%7C%20%C2%A3%7Bselected_cogs%3A%2C.0f%7D%20%7C%0A%20%20%20%20%7C%20Markup%20%7C%20%7Bselected_markup%3A.0%25%7D%20%7C%0A%20%20%20%20%7C%20Logistics%20cost%20%7C%20%C2%A3%7Bselected_logistics%3A%2C.0f%7D%20%7C%0A%20%20%20%20%7C%20Calculated%20revenue%20%7C%20%C2%A3%7Bcalculated_revenue%3A%2C.0f%7D%20%7C%0A%20%20%20%20%7C%20Total%20costs%20%7C%20%C2%A3%7Bcalculated_total_costs%3A%2C.0f%7D%20%7C%0A%20%20%20%20%7C%20Estimated%20profit%20%7C%20%C2%A3%7Bcalculated_profit%3A%2C.0f%7D%20%7C%0A%20%20%20%20%7C%20Profit%20margin%20%7C%20%7Bgross_margin%3A.1%25%7D%20%7C%0A%20%20%20%20%22%22%22)%0A%0A%20%20%20%20metrics_block%23%20Revenue%2C%20Costs%2C%20and%20Profit%20Comparison%0A%20%20%20%20return%20(metrics_block%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Revenue%2C%20Costs%2C%20and%20Profit%20Comparison%0A%0A%20%20%20%20The%20chart%20below%20compares%20the%20main%20financial%20components%20generated%20by%20the%20selected%20scenario.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20calculated_profit%2C%0A%20%20%20%20calculated_revenue%2C%0A%20%20%20%20calculated_total_costs%2C%0A%20%20%20%20mo%2C%0A%20%20%20%20pd%2C%0A%20%20%20%20px%2C%0A)%3A%0A%20%20%20%20comparison_df%20%3D%20pd.DataFrame(%7B%0A%20%20%20%20%20%20%20%20%22Category%22%3A%20%5B%22Revenue%22%2C%20%22Total%20Costs%22%2C%20%22Profit%22%5D%2C%0A%20%20%20%20%20%20%20%20%22Amount%22%3A%20%5Bcalculated_revenue%2C%20calculated_total_costs%2C%20calculated_profit%5D%0A%20%20%20%20%7D)%0A%0A%20%20%20%20fig_comparison%20%3D%20px.bar(%0A%20%20%20%20%20%20%20%20comparison_df%2C%0A%20%20%20%20%20%20%20%20x%3D%22Category%22%2C%0A%20%20%20%20%20%20%20%20y%3D%22Amount%22%2C%0A%20%20%20%20%20%20%20%20title%3D%22Comparison%20of%20Revenue%2C%20Total%20Costs%2C%20and%20Profit%22%2C%0A%20%20%20%20%20%20%20%20labels%3D%7B%22Amount%22%3A%20%22Amount%20(%C2%A3)%22%2C%20%22Category%22%3A%20%22Financial%20Measure%22%7D%2C%0A%20%20%20%20%20%20%20%20text%3D%22Amount%22%0A%20%20%20%20)%0A%0A%20%20%20%20fig_comparison.update_traces(%0A%20%20%20%20%20%20%20%20texttemplate%3D%22%C2%A3%25%7By%3A%2C.0f%7D%22%2C%0A%20%20%20%20%20%20%20%20textposition%3D%22outside%22%0A%20%20%20%20)%0A%0A%20%20%20%20fig_comparison.update_layout(%0A%20%20%20%20%20%20%20%20template%3D%22presentation%22%2C%0A%20%20%20%20%20%20%20%20width%3D900%2C%0A%20%20%20%20%20%20%20%20height%3D500%0A%20%20%20%20)%0A%0A%20%20%20%20mo.ui.plotly(fig_comparison)%0A%20%20%20%20return%20(fig_comparison%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo%2C%20pd%2C%20px%2C%20selected_cogs%2C%20selected_logistics)%3A%0A%20%20%20%20scenario_data%20%3D%20pd.DataFrame(%7B%0A%20%20%20%20%20%20%20%20%22Scenario%22%3A%20%5B%22Low%20Markup%22%2C%20%22Medium%20Markup%22%2C%20%22High%20Markup%22%5D%2C%0A%20%20%20%20%20%20%20%20%22Markup%22%3A%20%5B0.15%2C%200.25%2C%200.40%5D%0A%20%20%20%20%7D)%0A%0A%20%20%20%20scenario_data%5B%22Revenue%22%5D%20%3D%20selected_cogs%20*%20(1%20%2B%20scenario_data%5B%22Markup%22%5D)%0A%20%20%20%20scenario_data%5B%22Total%20Costs%22%5D%20%3D%20selected_cogs%20%2B%20selected_logistics%0A%20%20%20%20scenario_data%5B%22Profit%22%5D%20%3D%20scenario_data%5B%22Revenue%22%5D%20-%20scenario_data%5B%22Total%20Costs%22%5D%0A%0A%20%20%20%20fig_scenarios%20%3D%20px.bar(%0A%20%20%20%20%20%20%20%20scenario_data%2C%0A%20%20%20%20%20%20%20%20x%3D%22Scenario%22%2C%0A%20%20%20%20%20%20%20%20y%3D%22Profit%22%2C%0A%20%20%20%20%20%20%20%20color%3D%22Scenario%22%2C%0A%20%20%20%20%20%20%20%20title%3D%22Profit%20Comparison%20Across%20Pricing%20Scenarios%22%0A%20%20%20%20)%0A%0A%20%20%20%20fig_scenarios.update_layout(template%3D%22presentation%22)%0A%0A%20%20%20%20mo.ui.plotly(fig_scenarios)%0A%20%20%20%20return%20(fig_scenarios%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo%2C%20pd%2C%20px%2C%20selected_cogs%2C%20selected_logistics)%3A%0A%20%20%20%20markup_range%20%3D%20%5Bi%20%2F%20100%20for%20i%20in%20range(0%2C%2051)%5D%0A%0A%20%20%20%20df_full%20%3D%20pd.DataFrame(%7B%0A%20%20%20%20%20%20%20%20%22Markup%22%3A%20markup_range%0A%20%20%20%20%7D)%0A%0A%20%20%20%20df_full%5B%22Revenue%22%5D%20%3D%20selected_cogs%20*%20(1%20%2B%20df_full%5B%22Markup%22%5D)%0A%20%20%20%20df_full%5B%22Total%20Costs%22%5D%20%3D%20selected_cogs%20%2B%20selected_logistics%0A%20%20%20%20df_full%5B%22Profit%22%5D%20%3D%20df_full%5B%22Revenue%22%5D%20-%20df_full%5B%22Total%20Costs%22%5D%0A%0A%20%20%20%20fig_full%20%3D%20px.line(%0A%20%20%20%20%20%20%20%20df_full%2C%0A%20%20%20%20%20%20%20%20x%3D%22Markup%22%2C%0A%20%20%20%20%20%20%20%20y%3D%22Profit%22%2C%0A%20%20%20%20%20%20%20%20title%3D%22Profit%20vs%20Markup%20(Full%20Sensitivity%20Analysis)%22%0A%20%20%20%20)%0A%0A%20%20%20%20fig_full.update_layout(template%3D%22presentation%22)%0A%0A%20%20%20%20mo.ui.plotly(fig_full)%0A%20%20%20%20return%20(fig_full%2C)%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+    <!-- This is a portal for the data editor to render in -->
+    <div id="portal" data-testid="glide-portal" style="position: fixed; left: 0; top: 0; z-index: 9999"></div>
+    <script data-marimo="true">
+      window.__MARIMO_MOUNT_CONFIG__ = {
+            "filename": "notebook.py",
+            "cwd": "",
+            "lspWorkspace": null,
+            "mode": "read",
+            "version": "0.23.1",
+            "serverToken": "unused",
+            "config": {"ai": {"custom_providers": {}, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 14, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": true, "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "uv"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_csv_encoding": "utf-8", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "show_tracebacks": false, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"auto_download": ["html"], "sql_output": "auto", "width": "medium"},
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null,
+        };
+    </script>
+  </body>
+</html>
