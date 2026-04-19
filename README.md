@@ -12,7 +12,7 @@ Personal Portfolio Webpage with Interactive Retail Profitability Analysis
 ## Project Overview
 This project is a personal portfolio webpage created for the AF1204 Individual Project. It combines a short personal profile with an interactive financial model that analyses retail profitability.
 
-The webpage allows the user to adjust key business inputs, including cost of goods sold, markup, and logistics cost, and observe how these changes affect revenue, total costs, profit, profit margin, and break-even level.
+The webpage allows business owners to adjust key business inputs, including cost of goods sold, markup and logistics cost and observe how these changes affect revenue, total costs, profit, profit margin and break-even level.
 
 ## Tools Used
 - Python
